@@ -7,7 +7,9 @@ module.exports = {
         return m("form", {
                 onsubmit: function(e) {
                     e.preventDefault()
-                    User.save()
+                    User.save().then(function(){
+                    	m.route.set("/list");
+                    });
                 }
             }, [
             m("label.label", "First name"),
